@@ -1,5 +1,5 @@
 # 🚀 Food order service
-This application for mobile developing with react-native library
+This application for street food restaurants, development with react-native library
 
 ## Functions
 ☑️ Load menu<br/>
