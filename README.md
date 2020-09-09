@@ -6,3 +6,5 @@ This application for street food restaurants, development with react-native libr
 ☑️ Show menu details<br/>
 ☑️ Order basket<br/>
 ☑️ Price calculation<br/>
+
+### 🎓 Focusing.
