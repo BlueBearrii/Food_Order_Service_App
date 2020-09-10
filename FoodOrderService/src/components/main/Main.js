@@ -7,7 +7,7 @@ import {
   ScrollView,
   Button,
   Alert,
-  Dimensions,
+  TouchableOpacity,
 } from 'react-native';
 import Header from '../utils/header/Header';
 
@@ -34,13 +34,15 @@ export default class Main extends Component {
             </View>
             <Text style={styles.textName}>ชื่อ : {data.name} </Text>
             <Text style={styles.textPrice}>ราคา : {data.price} บาท</Text>
-            <Button
-              style={styles.buttonStyle}
-              title="เลือก"
-              onPress={() => {
-                this.onClickFunction(data.name);
-              }}
-            />
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity style={styles.button}>
+                <Text>ลด</Text>
+              </TouchableOpacity>
+              <Text style={styles.countText}>0</Text>
+              <TouchableOpacity style={styles.button}>
+                <Text>เพิ่ม</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       );
@@ -49,12 +51,8 @@ export default class Main extends Component {
       <View>
         <Header title={'MENU'} />
         <ScrollView style={{marginBottom: 'auto'}}>{lists}</ScrollView>
-        <View style={styles.button}>
-          <Button
-            buttonStyle={styles.buttonStyles}
-            title="ไปที่ตะกร้า"
-            onPress={() => this.onClickBasket()}
-          />
+        <View>
+          <Button title="ไปที่ตะกร้า" onPress={() => this.onClickBasket()} />
         </View>
       </View>
     );
@@ -100,10 +98,19 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
   },
-  buttonStyles: {
-    backgroundColor: '#ededed',
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
   },
   button: {
+    flex: 1,
+    alignItems: 'center',
     padding: 10,
+  },
+  countText: {
+    fontSize: 36,
+    marginHorizontal: 10,
   },
 });
