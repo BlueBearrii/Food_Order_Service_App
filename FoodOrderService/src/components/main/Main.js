@@ -7,6 +7,7 @@ import {
   ScrollView,
   Button,
   Alert,
+  Dimensions,
 } from 'react-native';
 import Header from '../utils/header/Header';
 
@@ -16,9 +17,12 @@ export default class Main extends Component {
   onClickFunction = (title) => {
     Alert.alert(`เพิ่ม ${title}`);
   };
+
+  onClickBasket = () => {
+    Alert.alert('Basket');
+  };
   render() {
     let lists = orderLists.map((data, index) => {
-      console.log(data);
       return (
         <View style={styles.container} key={`${index} ${data.name}`}>
           <View style={styles.cardCoontainer}>
@@ -42,12 +46,17 @@ export default class Main extends Component {
       );
     });
     return (
-      <ScrollView>
-        <View>
-          <Header title={'MENU'} />
-          {lists}
+      <View>
+        <Header title={'MENU'} />
+        <ScrollView style={{marginBottom: 'auto'}}>{lists}</ScrollView>
+        <View style={styles.button}>
+          <Button
+            buttonStyle={styles.buttonStyles}
+            title="ไปที่ตะกร้า"
+            onPress={() => this.onClickBasket()}
+          />
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -74,13 +83,14 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   imageCard: {
-    height: 200,
+    height: 250,
     width: '100%',
     padding: 5,
   },
   imageContainer: {
-    height: '100%',
-    width: '100%',
+    flex: 1,
+    width: null,
+    height: null,
   },
   textName: {
     padding: 10,
@@ -90,5 +100,10 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
   },
-  buttonStyle: {},
+  buttonStyles: {
+    backgroundColor: '#ededed',
+  },
+  button: {
+    padding: 10,
+  },
 });
