@@ -22,7 +22,7 @@ export default function MenuCard(props) {
         </View>
         <View style={styles.name}>
           <Text style={styles.title}>ชื่อ : {props.name}</Text>
-          <Text style={styles.price}>ราคา : 40 บาท</Text>
+          <Text style={styles.price}>ราคา : {props.price} บาท</Text>
         </View>
         <View style={styles.buttonLine}>
           <TouchableOpacity style={styles.button}>
@@ -31,14 +31,14 @@ export default function MenuCard(props) {
               onPress={() => {
                 if (state > 0) setState(state - 1);
               }}>
-              ลด
+              -
             </Text>
           </TouchableOpacity>
           <Text style={styles.textQuantity}>{state}</Text>
           <TouchableOpacity
             style={styles.button}
             onPress={() => setState(state + 1)}>
-            <Text style={styles.textInButton}>เพิ่ม</Text>
+            <Text style={styles.textInButton}>+</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -74,13 +74,13 @@ const styles = StyleSheet.create({
   },
   name: {
     flex: 1,
-    padding: 5,
+    padding: 15,
   },
   title: {
     fontSize: 24,
   },
   price: {
-    fontSize: 18,
+    fontSize: 20,
   },
   textQuantity: {
     fontSize: 36,
@@ -97,6 +97,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textInButton: {
-    fontSize: 24,
+    fontSize: 30,
   },
 });

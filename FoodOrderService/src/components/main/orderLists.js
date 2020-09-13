@@ -1,8 +1,8 @@
 const lists = [
-  {name: 'กะเพราเป็ด', price: 35},
-  {name: 'กะเพรากุ้ง', price: 35},
-  {name: 'กะเพราหมึก', price: 35},
-  {name: 'กะเพราทะเล', price: 35},
+  {name: 'กะเพราเป็ด', price: 40},
+  {name: 'กะเพรากุ้ง', price: 40},
+  {name: 'กะเพราหมึก', price: 40},
+  {name: 'กะเพราทะเล', price: 40},
   {name: 'กะเพราไก่', price: 35},
   {name: 'กะเพราหมู', price: 35},
 ];
