@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, ScrollView} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faShoppingBasket} from '@fortawesome/free-solid-svg-icons';
+
 import MenuCard from './MenuCard';
 import orderLists from './orderLists';
 
@@ -20,7 +23,11 @@ export default class Main extends Component {
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate('Basket')}>
-            <Text>Go to basket</Text>
+            <FontAwesomeIcon
+              icon={faShoppingBasket}
+              color={'#3d3d3d'}
+              size={30}
+            />
           </TouchableOpacity>
         </View>
       </View>
