@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   cardSyle: {
     backgroundColor: '#fff',
-    height: screenWidth,
+    height: 300,
     width: '100%',
     borderRadius: 10,
     borderWidth: 0,
