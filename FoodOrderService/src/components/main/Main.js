@@ -10,7 +10,7 @@ import orderLists from './orderLists';
 export default class Main extends Component {
   render() {
     const lists = orderLists.map((data, index) => {
-      console.log(data);
+      //console.log(data);
       return (
         <MenuCard name={data.name} price={data.price} key={`key is ${index}`} />
       );

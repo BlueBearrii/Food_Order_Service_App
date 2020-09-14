@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import image from '../../assets/vector/burger.png';
+import Basket from '../basket/Basket';
 
 export default function MenuCard(props) {
   const [state, setState] = useState(0);
@@ -37,7 +38,9 @@ export default function MenuCard(props) {
           <Text style={styles.textQuantity}>{state}</Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => setState(state + 1)}>
+            onPress={() => {
+              setState(state + 1);
+            }}>
             <Text style={styles.textInButton}>+</Text>
           </TouchableOpacity>
         </View>
