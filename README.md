@@ -4,7 +4,7 @@ This application for street food restaurants, development with react-native libr
 ## Functions
 ☑️ Load menu lists<br/>
 ☑️ Add new menu<br/>
-☑️ Sort type of food<br/>
+☑️ Sorting type of food<br/>
 ☑️ Order basket<br/>
 ☑️ Edit order<br/>
 ☑️ Delete order<br/>
