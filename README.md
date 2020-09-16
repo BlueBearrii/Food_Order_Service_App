@@ -11,3 +11,4 @@ This application for street food restaurants, development with react-native libr
 ☑️ Price calculation<br/>
 
 ### 🎓 Focusing.
+💎 In develop, soon
