@@ -1,11 +1,21 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
+
+import lists from './menu';
+import TabLeft from './TabLeft';
 
 export default function OrderLists() {
+  let mapDataArray = lists.map((data, index) => {
+    return <TabLeft data={data} />;
+  });
   return (
     <View style={styles.constainer}>
       <View style={styles.tabMenu}>
-        <Text>Tab 1</Text>
+        <View style={styles.tabHeader}>
+          <Text style={{fontSize: 20, fontWeight: '500'}}>MENU</Text>
+        </View>
+        <ScrollView>{mapDataArray}</ScrollView>
       </View>
       <View style={styles.tabOrder}>
         <Text>Tab 2</Text>
@@ -20,15 +30,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   tabMenu: {
-    flex: 1.5,
-    backgroundColor: 'red',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    padding: 10,
+    flex: 1.8,
+    //backgroundColor: 'red',
+  },
+  tabHeader: {
+    backgroundColor: 'orange',
+    height: 'auto',
+    padding: 15,
   },
   tabOrder: {
     flex: 1,
-    backgroundColor: 'blue',
+    backgroundColor: '#ededed',
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: 10,
