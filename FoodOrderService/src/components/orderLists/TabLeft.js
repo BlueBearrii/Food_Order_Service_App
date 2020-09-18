@@ -15,7 +15,11 @@ export default function TabLeft(props) {
           <Text>Picture</Text>
         </View>
         <View style={styles.touchSelectStyle}>
-          <TouchableOpacity onPress={() => Alert.alert(type + ' ' + meatType)}>
+          <TouchableOpacity
+            onPress={() => {
+              Alert.alert(type + ' ' + meatType);
+              props.useOrderState(props.orderState.push(`${type}${meatType}`));
+            }}>
             <Text>เพิ่ม</Text>
           </TouchableOpacity>
         </View>
@@ -39,7 +43,7 @@ const styles = StyleSheet.create({
     height: 200,
   },
   cardHeader: {
-    backgroundColor: '#fff',
+    backgroundColor: 'orange',
     padding: 10,
   },
   cardDetail: {
