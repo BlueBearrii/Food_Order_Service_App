@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 
 import lists from './menu';
 import TabLeft from './TabLeft';
+import TabRight from './TabRight';
 
 export default function OrderLists() {
+  const [orderState, useOrderState] = useState([]);
   let mapDataArray = lists.map((data, index) => {
-    return <TabLeft data={data} />;
+    return (
+      <TabLeft
+        data={data}
+        key={index}
+        useOrderState={useOrderState}
+        orderState={orderState}
+      />
+    );
   });
   return (
     <View style={styles.constainer}>
@@ -18,7 +27,7 @@ export default function OrderLists() {
         <ScrollView>{mapDataArray}</ScrollView>
       </View>
       <View style={styles.tabOrder}>
-        <Text>Tab 2</Text>
+        <TabRight orderState={orderState} />
       </View>
     </View>
   );
