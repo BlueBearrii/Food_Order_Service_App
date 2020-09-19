@@ -7,27 +7,19 @@ import TabLeft from './TabLeft';
 import TabRight from './TabRight';
 
 export default function OrderLists() {
-  const [orderState, useOrderState] = useState([]);
   let mapDataArray = lists.map((data, index) => {
-    return (
-      <TabLeft
-        data={data}
-        key={index}
-        useOrderState={useOrderState}
-        orderState={orderState}
-      />
-    );
+    return <TabLeft data={data} key={index} />;
   });
   return (
     <View style={styles.constainer}>
       <View style={styles.tabMenu}>
         <View style={styles.tabHeader}>
-          <Text style={{fontSize: 20, fontWeight: '500'}}>MENU</Text>
+          <Text>MENU</Text>
         </View>
         <ScrollView>{mapDataArray}</ScrollView>
       </View>
       <View style={styles.tabOrder}>
-        <TabRight orderState={orderState} />
+        <TabRight />
       </View>
     </View>
   );
