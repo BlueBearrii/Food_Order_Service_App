@@ -1,6 +1,5 @@
-import {noAuto} from '@fortawesome/fontawesome-svg-core';
 import React from 'react';
-import {View, Text, StyleSheet, Button, Alert} from 'react-native';
+import {View, Text, StyleSheet, Alert} from 'react-native';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 
 export default function TabLeft(props) {
@@ -18,7 +17,6 @@ export default function TabLeft(props) {
           <TouchableOpacity
             onPress={() => {
               Alert.alert(type + ' ' + meatType);
-              props.useOrderState(props.orderState.push(`${type}${meatType}`));
             }}>
             <Text>เพิ่ม</Text>
           </TouchableOpacity>
