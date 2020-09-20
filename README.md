@@ -10,5 +10,8 @@ This application for street food restaurants, development with react-native libr
 ☑️ Delete order<br/>
 ☑️ Price calculation<br/>
 
+## Tech tools
+React Native
+
 ### 🎓 Focusing.
 💎 In develop, soon
