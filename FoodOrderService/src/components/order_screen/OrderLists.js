@@ -8,7 +8,6 @@ export default class OrderLists extends Component {
     const {onSelectOrder} = this.props;
 
     const generateLists = lists.map((item, index) => {
-      console.log(item);
       let itemType = item.type;
       return (
         <View key={`${index} ${item.type}`} style={styles.card}>
@@ -20,20 +19,26 @@ export default class OrderLists extends Component {
                   <View style={styles.meatCardItem}>
                     <Text>{item}</Text>
                   </View>
-                  <TouchableOpacity
-                    style={styles.selectButton}
-                    onPress={() => {
-                      onSelectOrder(`${itemType}${item} ธรรมดา`);
-                    }}>
-                    <Text>ธรรมดา</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    style={styles.selectButton}
-                    onPress={() => {
-                      onSelectOrder(`${itemType}${item} พิเศษ`);
-                    }}>
-                    <Text>พิเศษ</Text>
-                  </TouchableOpacity>
+                  <View style={styles.selectButtonContainer}>
+                    <View style={styles.selectButtonCover}>
+                      <TouchableOpacity
+                        style={styles.selectButton}
+                        onPress={() => {
+                          onSelectOrder(`${itemType}${item} ธรรมดา`);
+                        }}>
+                        <Text>ธรรมดา</Text>
+                      </TouchableOpacity>
+                    </View>
+                    <View style={styles.selectButtonCover}>
+                      <TouchableOpacity
+                        style={styles.selectButton}
+                        onPress={() => {
+                          onSelectOrder(`${itemType}${item} พิเศษ`);
+                        }}>
+                        <Text>พิเศษ</Text>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
                 </View>
               );
             })}
@@ -43,7 +48,10 @@ export default class OrderLists extends Component {
     });
     return (
       <View style={styles.container}>
-        <ScrollView>{generateLists}</ScrollView>
+        <Text style={styles.header}>รายการอาหาร</Text>
+        <ScrollView>
+          <View style={{paddingBottom: 150}}>{generateLists}</View>
+        </ScrollView>
       </View>
     );
   }
@@ -55,8 +63,15 @@ const styles = StyleSheet.create({
   },
   card: {
     height: 200,
+    paddingHorizontal: 1,
+  },
+  header: {
+    backgroundColor: 'orange',
+    padding: 15,
+    textAlign: 'center',
   },
   typeHeader: {
+    marginTop: 5,
     backgroundColor: 'orange',
     padding: 15,
   },
@@ -67,12 +82,20 @@ const styles = StyleSheet.create({
   },
   meatCardItem: {
     backgroundColor: '#ededed',
-    height: '50%',
-    width: '100%',
+    flex: 2,
     padding: 5,
+  },
+  selectButtonContainer: {
+    flexDirection: 'row',
+    flex: 1,
+  },
+  selectButtonCover: {
+    flex: 1,
+    margin: 1,
   },
   selectButton: {
     backgroundColor: 'orange',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
