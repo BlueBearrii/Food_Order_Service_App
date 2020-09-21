@@ -16,7 +16,6 @@ export default class OrderScreen extends Component {
       this.setState({
         orderInBasket: [...this.state.orderInBasket, item],
       });
-      console.log(this.state);
     };
     return (
       <View style={styles.container}>
