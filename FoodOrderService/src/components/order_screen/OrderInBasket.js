@@ -7,10 +7,12 @@ export default class OrderInBasket extends Component {
     const {orderInBasket} = this.props;
     return (
       <View style={styles.container}>
-        <Text>Oder in basket</Text>
-        {orderInBasket.map((item, index) => {
-          return <OrderInBasketQuantity key={index} item={item} />;
-        })}
+        <Text style={styles.header}>ตะกร้า</Text>
+        <View style={styles.basket}>
+          {orderInBasket.map((item, index) => {
+            return <OrderInBasketQuantity key={index} item={item} />;
+          })}
+        </View>
       </View>
     );
   }
@@ -19,6 +21,13 @@ export default class OrderInBasket extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    borderLeftWidth: 0.5,
+  },
+  basket: {
+    padding: 5,
+  },
+  header: {
+    backgroundColor: 'orange',
+    padding: 15,
+    textAlign: 'center',
   },
 });
