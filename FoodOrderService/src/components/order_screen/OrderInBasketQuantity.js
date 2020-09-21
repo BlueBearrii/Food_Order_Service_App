@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export default class OrderInBasketQuantity extends Component {
@@ -15,20 +15,45 @@ export default class OrderInBasketQuantity extends Component {
       <View>
         <Text>{item}</Text>
         <Text>จำนวน {this.state.quantity} จาน</Text>
-        <TouchableOpacity
-          onPress={() => {
-            this.setState({quantity: this.state.quantity + 1});
-          }}>
-          <Text>+</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            if (this.state.quantity > 1)
-              this.setState({quantity: this.state.quantity - 1});
-          }}>
-          <Text>-</Text>
-        </TouchableOpacity>
+        <View style={styles.row}>
+          <View style={styles.btn}>
+            <TouchableOpacity
+              style={styles.btnStyles}
+              onPress={() => {
+                this.setState({quantity: this.state.quantity + 1});
+              }}>
+              <Text style={styles.textStyle}>+</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.btn}>
+            <TouchableOpacity
+              style={styles.btnStyles}
+              onPress={() => {
+                if (this.state.quantity > 1)
+                  this.setState({quantity: this.state.quantity - 1});
+              }}>
+              <Text style={styles.textStyle}>-</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  row: {
+    flexDirection: 'row',
+  },
+  btn: {
+    flex: 1,
+  },
+  btnStyles: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 5,
+  },
+  textStyle: {
+    fontSize: 20,
+  },
+});
