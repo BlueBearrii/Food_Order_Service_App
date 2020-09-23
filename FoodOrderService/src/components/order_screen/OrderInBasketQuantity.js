@@ -3,24 +3,18 @@ import {Text, View, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export default class OrderInBasketQuantity extends Component {
-  constructor(props) {
-    super();
-    this.state = {
-      quantity: 1,
-    };
-  }
   render() {
-    const {item} = this.props;
+    const {item, removeItemFromBasket, index, onSetQuantity} = this.props;
     return (
       <View>
-        <Text>{item}</Text>
-        <Text>จำนวน {this.state.quantity} จาน</Text>
+        <Text>{item.name}</Text>
+        <Text>จำนวน {item.quantity} จาน</Text>
         <View style={styles.row}>
           <View style={styles.btn}>
             <TouchableOpacity
               style={styles.btnStyles}
               onPress={() => {
-                this.setState({quantity: this.state.quantity + 1});
+                onSetQuantity('ADD', item.name);
               }}>
               <Text style={styles.textStyle}>+</Text>
             </TouchableOpacity>
@@ -29,8 +23,7 @@ export default class OrderInBasketQuantity extends Component {
             <TouchableOpacity
               style={styles.btnStyles}
               onPress={() => {
-                if (this.state.quantity > 1)
-                  this.setState({quantity: this.state.quantity - 1});
+                onSetQuantity('REMOVE', item.name);
               }}>
               <Text style={styles.textStyle}>-</Text>
             </TouchableOpacity>
