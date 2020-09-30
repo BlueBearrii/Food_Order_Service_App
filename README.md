@@ -14,5 +14,5 @@ This application for street food restaurants, development with react-native libr
 ## Tech tools
 React Native
 
-### 🎓 Focusing.
-💎 In develop, soon
+### 🎓 Break
+Will back after mid-term exam.
